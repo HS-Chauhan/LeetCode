@@ -1,0 +1,23 @@
+202. Happy Number
+
+
+class Solution {
+    public boolean isHappy(int n) {
+        HashSet<Integer> set = new HashSet<>();
+        while(n != 1 && !set.contains(n)){
+            set.add(n);
+            n = num(n);
+        }
+        return n == 1;
+    }
+
+    public int num(int n){
+        int New = 0;
+        while(n != 0){
+            int x = n % 10;
+            New += x * x;
+            n = n / 10;
+        }
+        return New;
+    }
+}
